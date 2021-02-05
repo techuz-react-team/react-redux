@@ -18,5 +18,7 @@
 2. https://ant.design/components/overview/
 3. https://react.semantic-ui.com/
 
+### You also can use https://formik.org/docs/overview for handling forms if you want else you can handle it manually. upto you.
+
 
 #### Clone this repo, create your own name branch, once you complete the task, generate a pull request.
