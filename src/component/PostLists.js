@@ -26,6 +26,16 @@ const PostLists = () => {
                 })
     }
 
+    const onDeletePost = (id) => {
+      dispatch(Actions.loading())
+      axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+      .then(response=> {
+        alert('Post deleted successfully..')
+        dispatch(Actions.getAllPost(posts))
+        //setTimeout( ()=> {history.replace('/')},200)
+      }).catch(err => console.log(err.message))
+    }
+
     const renderedPosts = posts.map(post => (
         <article className="post-excerpt" key={post.id}>
           <h3>{post.title}</h3>
@@ -36,12 +46,13 @@ const PostLists = () => {
           <Link  style={{margin:'5px'}} to={`/postedit/${post.id}`} className="btn btn-info">
             Edit Post
           </Link>
+          <button onClick={ () => onDeletePost(post.id)} className="btn btn-danger" >Delete Post</button>
         </article>
       ))
 
     return(
         <div>
-            {loading && !posts ? <h1>Loading...</h1> : ''}
+            {loading  ? <h1>Loading...</h1> : ''}
             {posts  ? renderedPosts : 'No data found'}
         </div>
     )
