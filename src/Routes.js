@@ -15,9 +15,9 @@ class Routes extends Component{
             <Header />
             <Switch>
                 <Route path='/' exact  component={PostLists}/>
-                <Route path='/posts/:id'   component={SinglePost}/>
-                <Route path='/create-post'   component={CreatePost}/>
-                <Route path='/postedit/:id'   component={EditPost}/>
+                <Route path='/posts/:id' exact  component={SinglePost}/>
+                <Route path='/create-post'  exact component={CreatePost}/>
+                <Route path='/postedit/:id' exact  component={EditPost}/>
             </Switch>
             </Router>
         )
