@@ -29,6 +29,10 @@ const postReducer = (state = initial_state, action) => {
             ...state,
             loading:true
         }
+        case ActionType.HIDE_LOADING : return {
+            ...state,
+            loading:false
+        }
 
         default: return state
     }

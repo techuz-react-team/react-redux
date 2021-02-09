@@ -3,8 +3,6 @@ import {useSelector, useDispatch} from 'react-redux'
 import * as Actions from '../store/posts/postAction'
 import { Link } from 'react-router-dom'
 
-const axios = require('axios');
-
 const SinglePost = (props) => {
     const {id} = props.match.params;
     
@@ -14,20 +12,10 @@ const SinglePost = (props) => {
 
 
     useEffect( ()=> {
-        setTimeout(()=>{getSinglePosts()},200)   
-    },[])
-
-    const getSinglePosts = () => {
         dispatch(Actions.loading())
-        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
-                .then(response=>{
-                const Post =response.data;
-                dispatch(Actions.getPostById(Post))
-                })
-                .catch(error=>{
-                    console.log('error.message',error.message)
-                })
-    }
+        dispatch(Actions.getPostById(id))
+    },[Actions.getPostById])
+
 
     const randersinglePost =  (
         <div>

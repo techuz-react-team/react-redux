@@ -2,38 +2,23 @@ import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import * as Actions from '../store/posts/postAction'
 import { Link } from 'react-router-dom'
-const axios = require('axios');
 
 const PostLists = () => {
     const  posts = useSelector(state => state.postData);
     const loading = useSelector(state => state.loading)
     const dispatch = useDispatch();
     
-    useEffect( ()=> {
-      setTimeout(()=>{getPosts()},200)
-    },[])
 
-    const getPosts = () => {
-        dispatch(Actions.loading())
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-                .then(response=>{
-                const posts =response.data;
-                //console.log('Posts',posts)
-                dispatch(Actions.getAllPost(posts))
-                })
-                .catch(error=>{
-                    console.log('error.message',error.message)
-                })
-    }
+    useEffect( ()=> {
+      dispatch(Actions.loading())
+      dispatch(Actions.getAllPost())
+    },[Actions.getAllPost])
+
+   
 
     const onDeletePost = (id) => {
       dispatch(Actions.loading())
-      axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
-      .then(response=> {
-        alert('Post deleted successfully..')
-        dispatch(Actions.getAllPost(posts))
-        //setTimeout( ()=> {history.replace('/')},200)
-      }).catch(err => console.log(err.message))
+      dispatch(Actions.deletePost(id))
     }
 
     const renderedPosts = posts.map(post => (

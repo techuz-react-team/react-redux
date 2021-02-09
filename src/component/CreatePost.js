@@ -30,24 +30,12 @@ const CreatePost = () => {
 
     const savePost = () => {
         dispatch(Actions.loading())
-        axios({
-            method: 'POST',
-            url: 'https://jsonplaceholder.typicode.com/posts',
-            headers:  {
-                'Content-type': 'application/json; charset=UTF-8',
-              }, 
-            data: JSON.stringify({
-                title: title,
-                body: content,
-                userId: userId,
-              })
-          }).then( response => {
-              alert('Post Created successfully...')
-              setTimeout( ()=> {history.replace('/')},200)
-              });
-
-        setTitle('')
-        setContent('') 
+        const data = JSON.stringify({
+            title: title,
+            body: content,
+            userId: userId,
+            })
+        dispatch(Actions.createPost(data)) 
     }
 
     return(

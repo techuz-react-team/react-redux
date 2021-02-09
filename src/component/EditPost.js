@@ -2,9 +2,6 @@ import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux'
 import * as Actions from '../store/posts/postAction'
 
-import history from '../history'
-const axios = require('axios');
-
 
 const EditPost = (props) => {
     const {id} = props.match.params;
@@ -37,23 +34,14 @@ const EditPost = (props) => {
 
     const savePost = () => {
         dispatch(Actions.loading())
-        axios({
-            method: 'PUT',
-            url: `https://jsonplaceholder.typicode.com/posts/${id}`,
-            headers:  {
-                'Content-type': 'application/json; charset=UTF-8',
-              }, 
-            data: JSON.stringify({
-                id:id,
-                title: title,
-                body: content,
-                userId: userId,
-              })
-          }).then( response => {
-              alert('Post Updated successfully...')
-              setTimeout( ()=> {history.replace('/')},200)
-              });
-
+        const data = JSON.stringify({
+            id:id,
+            title: title,
+            body: content,
+            userId: userId,
+            })
+        dispatch(Actions.updatePost(data,id)) 
+        
     }
 
     return(
