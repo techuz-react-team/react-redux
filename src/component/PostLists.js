@@ -12,7 +12,7 @@ const PostLists = () => {
     useEffect( ()=> {
       dispatch(Actions.loading())
       dispatch(Actions.getAllPost())
-    },[Actions.getAllPost])
+    },[])
 
    
 

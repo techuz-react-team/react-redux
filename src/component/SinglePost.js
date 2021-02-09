@@ -14,7 +14,7 @@ const SinglePost = (props) => {
     useEffect( ()=> {
         dispatch(Actions.loading())
         dispatch(Actions.getPostById(id))
-    },[Actions.getPostById])
+    },[])
 
 
     const randersinglePost =  (
