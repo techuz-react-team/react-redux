@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/react-redux/review-apps/ketanp/66c616/static/css/main.ca63831d.chunk.css",
+    "main.js": "/react-redux/review-apps/ketanp/66c616/static/js/main.363bd170.chunk.js",
+    "main.js.map": "/react-redux/review-apps/ketanp/66c616/static/js/main.363bd170.chunk.js.map",
+    "runtime-main.js": "/react-redux/review-apps/ketanp/66c616/static/js/runtime-main.f4bb0bfe.js",
+    "runtime-main.js.map": "/react-redux/review-apps/ketanp/66c616/static/js/runtime-main.f4bb0bfe.js.map",
+    "static/js/2.80135130.chunk.js": "/react-redux/review-apps/ketanp/66c616/static/js/2.80135130.chunk.js",
+    "static/js/2.80135130.chunk.js.map": "/react-redux/review-apps/ketanp/66c616/static/js/2.80135130.chunk.js.map",
+    "static/js/3.6f9d0733.chunk.js": "/react-redux/review-apps/ketanp/66c616/static/js/3.6f9d0733.chunk.js",
+    "static/js/3.6f9d0733.chunk.js.map": "/react-redux/review-apps/ketanp/66c616/static/js/3.6f9d0733.chunk.js.map",
+    "index.html": "/react-redux/review-apps/ketanp/66c616/index.html",
+    "static/css/main.ca63831d.chunk.css.map": "/react-redux/review-apps/ketanp/66c616/static/css/main.ca63831d.chunk.css.map",
+    "static/js/2.80135130.chunk.js.LICENSE.txt": "/react-redux/review-apps/ketanp/66c616/static/js/2.80135130.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4bb0bfe.js",
+    "static/js/2.80135130.chunk.js",
+    "static/css/main.ca63831d.chunk.css",
+    "static/js/main.363bd170.chunk.js"
+  ]
+}
