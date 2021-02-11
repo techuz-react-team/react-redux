@@ -9,5 +9,16 @@
         "pullRequestUrl": "https://github.com/techuz-react-team/react-redux/pull/1"
       }
     ]
+  },
+  "riddhi": {
+    "apps": [
+      {
+        "name": "review-apps",
+        "headCommitId": "75c2d2148742488fd781a88b3c994273187f7111",
+        "updatedAt": "2021-02-11T09:53:43.211Z",
+        "href": "review-apps/riddhi/75c2d2",
+        "pullRequestUrl": "https://github.com/techuz-react-team/react-redux/pull/2"
+      }
+    ]
   }
 }
