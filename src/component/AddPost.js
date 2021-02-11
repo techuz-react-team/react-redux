@@ -2,7 +2,6 @@ import react, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Input, Button, Layout } from "antd";
 import * as ACTIONS from "../actions/actions";
-import {} from "antd";
 const { Content } = Layout;
 
 const layout = {
@@ -19,7 +18,7 @@ const AddPost = () => {
   const [values, setValues] = useState({ title: "", body: "" });
   const userId = useSelector((state) => state.userId);
 
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     values.userId = userId;
     // dispatch(ACTIONS.SHOW_LOADER())
     dispatch(ACTIONS.savePost(values));
@@ -34,7 +33,7 @@ const AddPost = () => {
     }));
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 

@@ -25,7 +25,7 @@ export const savePost = (params) => {
       .then((response) => {
         if (response.status === 201 && response.data) {
           alert("Post Created successfully...");
-          history.push("/");
+          history.replace("/");
         }
       })
       .catch((error) => {

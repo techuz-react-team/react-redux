@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import { Form, Input, Button, Layout } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import * as ACTIONS from "../actions/actions";
@@ -14,6 +14,7 @@ const tailLayout = {
 };
 
 const EditPost = ({ match }) => {
+  const [form] = Form.useForm();
   const { id } = match.params;
 
   const post = useSelector((state) => state.singlePost);
@@ -32,7 +33,7 @@ const EditPost = ({ match }) => {
     dispatch(ACTIONS.getPostsById(id));
   }, []);
 
-  const onFinish = (values: any) => {
+  const onFinish = (values) => {
     values.userId = userId;
     // dispatch(ACTIONS.SHOW_LOADER())
     dispatch(ACTIONS.updatePost(values, id));
@@ -47,8 +48,15 @@ const EditPost = ({ match }) => {
     }));
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
+  };
+
+  const onFill = () => {
+    form.setFieldsValue({
+      title: post.title,
+      body: post.body,
+    });
   };
 
   return (
@@ -56,6 +64,7 @@ const EditPost = ({ match }) => {
       <Content>
         <Form
           {...layout}
+          form={form}
           name="basic"
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -83,6 +92,9 @@ const EditPost = ({ match }) => {
           <Form.Item {...tailLayout}>
             <Button type="primary" htmlType="submit">
               Edit Post
+            </Button>
+            <Button type="link" htmlType="button" onClick={onFill}>
+              Fill form
             </Button>
           </Form.Item>
         </Form>
