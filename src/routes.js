@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Switch, Route } from "react-router-dom";
 import AddPost from "./component/AddPost";
 import EditPost from "./component/EditPost";
 import Navbar from "./component/Navbar";

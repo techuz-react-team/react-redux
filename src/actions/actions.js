@@ -1,5 +1,6 @@
 import * as ACTION_TYPES from "./actionTypes";
-import history from "../history";
+import history from '../history';
+
 const Axios = require("axios");
 
 export const getPosts = () => {
@@ -38,7 +39,7 @@ export const deletePost = (postId) => {
   return (dispatch) => {
     return Axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`)
       .then((response) => {
-        alert('Post deleted successfully..')
+        alert('Post Deleted successfully...')
         dispatch({
           type: ACTION_TYPES.DELETE_POST,
           postId: postId,
@@ -74,7 +75,7 @@ export const updatePost = (params, postId) => {
       .then((response) => {
         if (response.status === 200 && response.data) {
           alert("Post Edited successfully...");
-          history.push("/");
+          history.replace("/");
         }
       })
       .catch((error) => {
